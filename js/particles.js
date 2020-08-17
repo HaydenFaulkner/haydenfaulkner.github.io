@@ -17,6 +17,7 @@ var pJS = function(tag_id, params){
       el: canvas_el,
       w: canvas_el.offsetWidth,
       h: canvas_el.offsetHeight
+      
     },
     particles: {
       number: {
@@ -199,6 +200,8 @@ var pJS = function(tag_id, params){
 
           pJS.canvas.w = pJS.canvas.el.offsetWidth;
           pJS.canvas.h = pJS.canvas.el.offsetHeight;
+
+          // pJS.canvas.ctx.scale(2,2);
 
           /* resize canvas */
           if(pJS.tmp.retina){
@@ -692,8 +695,8 @@ var pJS = function(tag_id, params){
         pJS.canvas.ctx.strokeStyle = 'rgba('+Math.round(color_line.r+208*Math.max(0.0,(opacity_line-0.3)/0.3))+','+Math.round(color_line.g-126*Math.max(0.0,(opacity_line-0.3)/0.3))+','+Math.round(color_line.b-25*Math.max(0.0,(opacity_line-0.3)/0.3))+','+opacity_line+')';
 	//pJS.canvas.ctx.filter = 'blur('+Math.floor(p2.opacity*2)+'px)';
         pJS.canvas.ctx.lineWidth = pJS.particles.line_linked.width*Math.floor(p2.opacity*3);
-	 pJS.canvas.ctx.shadowBlur = Math.floor(p1.opacity*30+p2.opacity*30);
-	 pJS.canvas.ctx.shadowColor = 'rgba('+Math.round(color_line.r+208*Math.max(0.0,(opacity_line-0.3)/0.3))+','+Math.round(color_line.g-126*Math.max(0.0,(opacity_line-0.3)/0.3))+','+Math.round(color_line.b-25*Math.max(0.0,(opacity_line-0.3)/0.3))+','+1+')';
+	 //pJS.canvas.ctx.shadowBlur = Math.floor(p1.opacity*30+p2.opacity*30);
+	 //pJS.canvas.ctx.shadowColor = 'rgba('+Math.round(color_line.r+208*Math.max(0.0,(opacity_line-0.3)/0.3))+','+Math.round(color_line.g-126*Math.max(0.0,(opacity_line-0.3)/0.3))+','+Math.round(color_line.b-25*Math.max(0.0,(opacity_line-0.3)/0.3))+','+1+')';
         //pJS.canvas.ctx.lineCap = 'round'; /* performance issue */
         
         /* path */

@@ -88,6 +88,12 @@ img {
   pointer-events: all; /* or auto, unset, etc */
 }
 
+/* @media screen and (max-width: 600px) {
+  #particles-js {
+    scale: 5;
+  }
+} */
+
 /* Header Overlay (typewriter) */
 #overlay {
   position: absolute;

@@ -20,6 +20,7 @@ h1 {
   -webkit-text-stroke-color: white;
   text-align: center;
   margin-bottom: 30px;
+  pointer-events: none;
 }
 
 h2 {
@@ -683,9 +684,6 @@ i:hover {
   border: 1px solid rgba(32, 114, 221, 1);
   text-align: center;
   border-radius: 40px;
-  font-family: "Poppins", Sans-serif;
-  font-size: 30px;
-  color: transparent;
   font-weight: 800;
   text-transform: none;
   font-style: normal;
@@ -695,14 +693,20 @@ i:hover {
   -webkit-box-shadow: 0px 0px 20px -8px rgba(32, 114, 221, 1);
   -moz-box-shadow: 0px 0px 20px -8px rgba(32, 114, 221, 1);
   box-shadow: 0px 0px 20px -8px rgba(32, 114, 221, 1);
+  text-shadow: 0 0 40px rgba(32, 114, 221, 0.8);/*rgba(16, 110, 234, 0.5);*/
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.contact a {
+  font-family: "Poppins", Sans-serif;
+  font-size: 30px;
+  color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color:  rgba(32, 114, 221, 0.8);
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
-  text-shadow: 0 0 40px rgba(32, 114, 221, 0.8);/*rgba(16, 110, 234, 0.5);*/
-  cursor: pointer;
-  transition: all .2s ease-in-out;
 }
 
 .contact:hover {
@@ -710,6 +714,15 @@ i:hover {
   -webkit-box-shadow: 0px 0px 20px -8px #db0fd1;
   -moz-box-shadow: 0px 0px 20px -8px #db0fd1;
   box-shadow: 0px 0px 20px -8px #db0fd1;
+  -webkit-text-stroke-color: #db0fd1;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  text-shadow: 0 0 40px #db0fd1;
+  transform: scale(1.1);
+}
+
+.contact:hover a {
   -webkit-text-stroke-color: #db0fd1;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;

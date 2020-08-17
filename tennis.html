@@ -12,12 +12,677 @@
   <script src="https://kit.fontawesome.com/1d0d78d349.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-
-
+  <script type="text/javascript" src="./js/tennis/svg.js"></script>
 </head>
 
 <!-- bodeh -->
 <body>
-  <h1>Coming Soon</h1>
+  <!-- The Project Info -->
+  <div class="center-wrapper">
+    <h1>Tennis</h1>
+    <p>A Tennis dataset and models for event detection &amp; commentary generation. Discussed in:<br /><strong><a href="./pdfs/DICTA17_Tennis.pdf" rel="nofollow">&ldquo;TenniSet: A Dataset for Dense Fine-Grained Event Recognition, Localisation and Description&rdquo;</a></strong></p>
+
+    <div class="buttons-wrapper">
+      <a href="https://github.com/HaydenFaulkner/Tennis">
+        <div class="button">VIEW ON GITHUB</div>
+      </a>
+      <a href="./pdfs/DICTA17_Tennis.pdf">
+        <div class="button">VIEW THE PAPER</div>
+      </a>
+      <a href="./pdfs/dicta17_poster.pdf">
+        <div class="button">VIEW THE POSTER</div>
+      </a>
+    </div>
+
+    <figure>
+      <span class="embed-youtube" style="text-align:center; display: block;">
+        <iframe class="youtube-player" type="text/html" width="750" height="422" src="https://www.youtube.com/embed/bXQNcZacioA?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent" allowfullscreen="true" style="border:0;"></iframe>
+      </span>
+    </figure>
+    
+    <hr />
+    
+    <!-- The Dataset -->
+    <h2>The Dataset</h2>
+    <p>The tennis dataset consists of 5 matches and has manually annotated temporal events and commentary captions.</p>
+
+
+    <table class="hoverTable">
+      <tr class="t1">
+        <td>Type</td>
+        <td>Attributes</td>
+        <td># Events</td>
+        <td># Frames</td>
+        <td>Avg. Frames per Event</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>match</b></code></td>
+        <td>winner</td>
+        <td>5</td>
+        <td>786,455</td>
+        <td>157,291</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>set</b></code></td>
+        <td>winner, score</td>
+        <td>11</td>
+        <td>765,738</td>
+        <td>69,613</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>game</b></code></td>
+        <td>winner, score, server</td>
+        <td>118</td>
+        <td>588,759</td>
+        <td>4,989</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>point</b></code></td>
+        <td>winner, score</td>
+        <td>746</td>
+        <td>159,494</td>
+        <td>214</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>serve</b></code></td>
+        <td>near/far, in/fault/let</td>
+        <td>1,017</td>
+        <td>68,385</td>
+        <td>67</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>hit</b></code></td>
+        <td>near/far, left/right</td>
+        <td>2,551</td>
+        <td>73,564</td>
+        <td>29</td>
+      </tr>
+    </table>
+
+    <!-- Splits -->
+    <h4>Splits</h4>
+    <p>Due to the limited size of the dataset, there are two varieties of train, validation and testing splits. The first (01) uses the the entire V010 as the validation and test while the second (02) splits across all videos evenly.</p>
+
+    <svg class="split-vis" width="849" height="139" viewbox="0 0 849 139" xmlns="http://www.w3.org/2000/svg">
+      <g class="dark" font-size="14">
+        <text id="svg_66" y="36" x="12">01</text>
+        <text id="svg_67" y="87" x="12">02</text>
+        <text id="svg_128" y="62" x="78">V006</text>
+        <text id="svg_129" y="62" x="207">V007</text>
+        <text id="svg_130" y="62" x="311">V008</text>
+        <text id="svg_131" y="62" x="542">V009</text>
+        <text id="svg_132" y="62" x="780">V010</text>
+      </g>
+      <g class="svg-videos" fill="#444444">
+        <rect id="svg_68" height="28" width="111" y="17" x="39"></rect>
+        <rect id="svg_70" height="28" width="122" y="17" x="160"></rect>
+        <rect id="svg_101" height="28" width="73" y="17" x="291"></rect>
+        <rect id="svg_72" height="28" width="364" y="17" x="372"></rect>
+        <rect id="svg_73" height="28" width="99" y="17" x="746"></rect>
+        <rect id="svg_102" height="28" width="111" y="68" x="39"></rect>
+        <rect id="svg_103" height="28" width="122" y="68" x="160"></rect>
+        <rect id="svg_108" height="28" width="73" y="68" x="291"></rect>
+        <rect id="svg_104" height="28" width="364" y="68" x="372"></rect>
+        <rect id="svg_105" height="28" width="99" y="68" x="746"></rect>
+      </g>
+      <g class="svg-whites">
+        <rect id="svg_83" height="20" width="84" y="21" x="758" fill="#ffffff"></rect>
+        <rect id="svg_124" height="20" width="29" y="72" x="117" fill="#ffffff"></rect>
+        <rect id="svg_121" height="20" width="30" y="72" x="250" fill="#ffffff"></rect>
+        <rect id="svg_118" height="20" width="24" y="72" x="338" fill="#ffffff"></rect>
+        <rect id="svg_112" height="20" width="95" y="72" x="640" fill="#ffffff"></rect>
+        <rect id="svg_111" height="20" width="21" y="72" x="820" fill="#ffffff"></rect>
+      </g>
+      <g class="svg-train" fill="#106eea">
+        <rect id="svg_74" height="20" width="84" y="21" x="62"></rect>
+        <rect id="svg_75" height="20" width="107" y="21" x="173"></rect>
+        <rect id="svg_76" height="20" width="69" y="21" x="292"></rect>
+        <rect id="svg_77" height="20" width="357" y="21" x="378"></rect>
+        <rect id="svg_106" height="20" width="55" y="72" x="62"></rect>
+        <rect id="svg_107" height="20" width="77" y="72" x="173"></rect>
+        <rect id="svg_109" height="20" width="46" y="72" x="292"></rect>
+        <rect id="svg_110" height="20" width="272" y="72" x="378"></rect>
+        <rect id="svg_117" height="20" width="62" y="72" x="758"></rect>
+        <rect id="svg_127" height="20" width="84" y="107" x="300"></rect>
+        <text id="svg_133" y="121" x="322" font-size="12" fill="#ffffff">training</text>
+      </g>
+      <g class="svg-val" fill="#106eea" fill-opacity="0.8">
+        <rect id="svg_78" height="20" width="30" y="21" x="758"></rect>
+        <rect id="svg_99" height="20" width="7" y="72" x="117"></rect>
+        <rect id="svg_97" height="20" width="4" y="72" x="250"></rect>
+        <rect id="svg_95" height="20" width="6" y="72" x="338"></rect>
+        <rect id="svg_94" height="20" width="17" y="72" x="650"></rect>
+        <rect id="svg_91" height="20" width="5" y="72" x="820"></rect>
+        <rect id="svg_84" height="20" width="84" y="107" x="390"></rect>
+        <text id="svg_134" y="121" x="406" font-size="12" fill="#ffffff">validation</text>
+      </g>
+      <g class="svg-test" fill="#106eea" fill-opacity="0.6">
+        <rect id="svg_79" height="20" width="54" y="21" x="788"></rect>
+        <rect id="svg_100" height="20" width="23" y="72" x="124"></rect>
+        <rect id="svg_98" height="20" width="26" y="72" x="254"></rect>
+        <rect id="svg_96" height="20" width="18" y="72" x="344"></rect>
+        <rect id="svg_93" height="20" width="68" y="72" x="667"></rect>
+        <rect id="svg_92" height="20" width="16" y="72" x="825"></rect>
+        <rect id="svg_85" height="20" width="84" y="107" x="480"></rect>
+        <text id="svg_135" y="121" x="502" font-size="12" fill="#ffffff">testing</text>
+      </g>
+    </svg>
+    
+    <p><br /></p>
+    <script type="text/javascript" src="./js/tennis/svg.js"></script>
+    
+    <table class="hoverTable">
+      <tr class="t1">
+        <td>Class</td>
+        <td colspan="3"># Events &ndash; <code><b>S01</b></code></td>
+        <td colspan="3"># Frames &ndash; <code><b>S01</b></code></td>
+        <td>&nbsp;&nbsp;</td>
+        <td colspan="3"># Events &ndash; <code><b>S02</b></code></td>
+        <td colspan="3"># Frames &ndash; <code><b>S02</b></code></td>
+      </tr>
+      <tr class="t2">
+        <td></td>
+        <td><code>train</code></td>
+        <td><code>val</code></td>
+        <td><code>test</code></td>
+        <td><code>train</code></td>
+        <td><code>val</code></td>
+        <td><code>test</code></td>
+        <td></td>
+        <td><code>train</code></td>
+        <td><code>val</code></td>
+        <td><code>test</code></td>
+        <td><code>train</code></td>
+        <td><code>val</code></td>
+        <td><code>test</code></td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>OTH</b></code></td>
+        <td>2,507</td>
+        <td>133</td>
+        <td>198</td>
+        <td>573,394</td>
+        <td>28,538</td>
+        <td>49,648</td>
+        <td></td>
+        <td>2,079</td>
+        <td>160</td>
+        <td>608</td>
+        <td>470,963</td>
+        <td>36,932</td>
+        <td>143,685</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>SFF</b></code></td>
+        <td>342</td>
+        <td>11</td>
+        <td>29</td>
+        <td>20,114</td>
+        <td>772</td>
+        <td>1,925</td>
+        <td></td>
+        <td>296</td>
+        <td>22</td>
+        <td>64</td>
+        <td>17,716</td>
+        <td>1,402</td>
+        <td>3,693</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>SFF</b></code></td>
+        <td>117</td>
+        <td>2</td>
+        <td>5</td>
+        <td>7,962</td>
+        <td>153</td>
+        <td>333</td>
+        <td></td>
+        <td>95</td>
+        <td>7</td>
+        <td>22</td>
+        <td>6,430</td>
+        <td>577</td>
+        <td>1,441</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>SFL</b></code></td>
+        <td>25</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1,596</td>
+        <td>0</td>
+        <td>72</td>
+        <td></td>
+        <td>21</td>
+        <td>1</td>
+        <td>4</td>
+        <td>1,380</td>
+        <td>38</td>
+        <td>250</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>SNI</b></code></td>
+        <td>293</td>
+        <td>24</td>
+        <td>29</td>
+        <td>17,186</td>
+        <td>1,762</td>
+        <td>1,994</td>
+        <td></td>
+        <td>242</td>
+        <td>18</td>
+        <td>86</td>
+        <td>14,876</td>
+        <td>992</td>
+        <td>5,074</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>SNF</b></code></td>
+        <td>111</td>
+        <td>7</td>
+        <td>10</td>
+        <td>7,312</td>
+        <td>578</td>
+        <td>772</td>
+        <td></td>
+        <td>88</td>
+        <td>8</td>
+        <td>32</td>
+        <td>6,020</td>
+        <td>473</td>
+        <td>2,169</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>SNL</b></code></td>
+        <td>10</td>
+        <td>2</td>
+        <td>0</td>
+        <td>656</td>
+        <td>126</td>
+        <td>0</td>
+        <td></td>
+        <td>9</td>
+        <td>1</td>
+        <td>2</td>
+        <td>543</td>
+        <td>65</td>
+        <td>174</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>HFL</b></code></td>
+        <td>533</td>
+        <td>22</td>
+        <td>45</td>
+        <td>16,520</td>
+        <td>648</td>
+        <td>1,419</td>
+        <td></td>
+        <td>432</td>
+        <td>33</td>
+        <td>135</td>
+        <td>13,530</td>
+        <td>1,037</td>
+        <td>4020</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>HFR</b></code></td>
+        <td>576</td>
+        <td>39</td>
+        <td>41</td>
+        <td>16,858</td>
+        <td>1,096</td>
+        <td>1,150</td>
+        <td></td>
+        <td>474</td>
+        <td>37</td>
+        <td>145</td>
+        <td>13,878</td>
+        <td>1,037</td>
+        <td>4,189</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>HNL</b></code></td>
+        <td>602</td>
+        <td>29</td>
+        <td>39</td>
+        <td>16,196</td>
+        <td>811</td>
+        <td>1,076</td>
+        <td></td>
+        <td>514</td>
+        <td>37</td>
+        <td>119</td>
+        <td>13,879</td>
+        <td>1,036</td>
+        <td>3,168</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>HNR</b></code></td>
+        <td>546</td>
+        <td>31</td>
+        <td>48</td>
+        <td>15,605</td>
+        <td>882</td>
+        <td>1,303</td>
+        <td></td>
+        <td>448</td>
+        <td>33</td>
+        <td>144</td>
+        <td>12,686</td>
+        <td>920</td>
+        <td>4,184</td>
+      </tr>
+    </table>
+    
+    <!-- Captions -->
+    <h4>Captions</h4>
+    <p>There is one commentary style caption for each of the 746 points, as well as another 10817 captions not aligned to any imagery. Some examples are:</p>
+
+    <table class="hoverTable">
+      <tr class="t1">
+        <td>Point ID</td>
+        <td>Caption</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>P00000001</b></code></td>
+        <td style="text-align: left;">high kick serve fp returns a ls return short rally fp cross-court rs lands out-side the court</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>P00000012</b></code></td>
+        <td style="text-align: left;">quick serve is an ace</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>P00000036</b></code></td>
+        <td style="text-align: left;">np serves down the t fp returns a ls return brief rally np fails to keep a cross-court ls in the play</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>P00000051</b></code></td>
+        <td style="text-align: left;">np hits a good serve fp struggles with it returning it long</td>
+      </tr>
+      <tr class="t3">
+        <td><code><b>P00000155</b></code></td>
+        <td style="text-align: left;">cannon serve down the t is an ace</td>
+      </tr>
+      <tr class="t4">
+        <td><code><b>P00000172</b></code></td>
+        <td style="text-align: left;">sharp angled slice serve np returns a rs return fp whips a rs cross-court winner</td>
+      </tr>
+    </table>
+    
+    <p>Both groups of captions are utilised to generate a word embedding for the 250 unique words in the vocabulary. The embedding is generated utilising a&nbsp;<a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" rel="nofollow">SkipGram model</a>. Below the 100 dimensional word embedding is visualised post t-SNE.</p>
+
+    <canvas id="c"></canvas>
+    
+
+    <!-- Download -->
+    <h4>Download</h4>
+
+    <p>The main data can be downloaded from my <a href="https://drive.google.com/open?id=1pZZQO69OHVWZ-NQ1zyvNOBEB-2BcC08Q"><b>Google Drive</b></a> with the links below. The directory structure should be:</p>
+    <pre>
+      <a href="https://drive.google.com/open?id=1fuHuH_I7c0Hu8TAq-zOG-jXwszCF9Z1B">Tennis</a>/
+      &#9492;&#9472;&#9472; <a href="https://drive.google.com/open?id=1pZZQO69OHVWZ-NQ1zyvNOBEB-2BcC08Q">data</a>/
+          &#9500;&#9472;&#9472; <a href="https://drive.google.com/open?id=1XOW8JG-rznZ7rTXCddZaROApnEoV9KZv">annotations</a> (9.5 MB)
+          &#9500;&#9472;&#9472; <a href="https://drive.google.com/open?id=1KrBUmPhsipYjCGWxyPsxM93-2NEKfPmF">features</a> (13.2 GB)
+          &#9500;&#9472;&#9472; <a href="https://drive.google.com/open?id=1_xP96GcfFl2AX5S7lfzMry8gmmnuQlBw">flow</a> (217 GB)
+          &#9500;&#9472;&#9472; <a href="https://drive.google.com/open?id=1nhV41NGKDudPlwOTPpo2oUlZAX_oTGeu">frames</a> (217 GB)
+          &#9500;&#9472;&#9472; <a href="https://drive.google.com/open?id=1-QfoToFVyfH5osQMefGyKbY361ASDihG">splits</a> (36.3 MB)
+          &#9492;&#9472;&#9472; <a href="https://drive.google.com/open?id=1rGIJIwmp_jhB8eoW-KVNYKHlu56l5UAq">videos</a> (11.1 GB)
+    </pre>
+
+    <ul>
+      <li><code><b>annotations</b></code> stores <code>.json</code> files for each video generated by the <a href="https://github.com/HaydenFaulkner/TemporalEventAnnotator">annotator</a>, as well as other annotation and commentary <code>.txt</code> files.</li>
+      <li><code><b>features</b></code> stores <code>.npy</code> feature files for frames for each video in subdirectories.</li>
+      <li><code><b>flow</b></code> stores <code>.jpg</code> image files for flow frames for each video in subdirectories.</li>
+      <li><code><b>frames</b></code> stores <code>.jpg</code> image files for RGB frames for each video in subdirectories.</li>
+      <li><code><b>splits</b></code> stores <code>.txt</code> files for each split (train, val, test).</li>
+      <li><code><b>videos</b></code> stores the original video files as <code>.mp4</code> files.</li>
+    </ul>
+    <p>More information can be found on the <a href="https://github.com/HaydenFaulkner/Tennis/tree/master/data"><b>Github</b></a>.</p>
+
+    
+    <hr />
+    
+    <!-- The Models -->
+    <h2>The Models</h2>
+    
+    <p>Models can be downloaded from my <a href="https://drive.google.com/open?id=1vODBn10jtQ_MEpxdKXLlG6h0j0JchTBD" target="_blank" rel="noopener noreferrer">Google Drive</a>. More information can be found on the <a href="https://github.com/HaydenFaulkner/Tennis/tree/master/models" target="_blank" rel="noopener noreferrer">Github</a>.</p>
+
+    <h4>Event Detection</h4>
+    <p>I experimented with a number of models to determine the framewise event class:</p>
+    <ul>
+      <li><strong>Framewise CNN</strong> &ndash; A&nbsp;<a href="https://arxiv.org/pdf/1608.06993.pdf" rel="nofollow">DenseNet-121</a> model ran on individual frames (uses no temporal information)</li>
+      <li><strong>Two-Stream Nets</strong> &ndash; Two&nbsp;<a href="https://arxiv.org/pdf/1608.06993.pdf" rel="nofollow">DenseNet-121</a>&nbsp;CNNs, one for flow and one for RGB</li>
+      <li><strong>R(2+1)D CNN</strong> &ndash; A&nbsp;<a href="https://arxiv.org/pdf/1711.11248.pdf" rel="nofollow">R(2+1)D</a> model with a temporal window of 8 frames</li>
+      <li><strong>Temporal Pooling</strong> &ndash; Temporal <em>max</em> pooling on the original framewise model over a window of 15 frames</li>
+      <li><strong>CNN-RNN</strong> &ndash; Applies a <a href="https://en.wikipedia.org/wiki/Gated_recurrent_unit" target="_blank" rel="noopener noreferrer">GRU</a> <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener noreferrer">RNN</a> across the original framewise model</li>
+    </ul>
+
+    <p>The table below shows the <a href="https://en.wikipedia.org/wiki/F1_score" rel="nofollow">F1 scores</a> per class on the test set for some of the different models:</p>
+
+
+    <table class="hoverTable">
+      <tr class="t1">
+        <td colspan="2">Model</td>
+        <td colspan="12">Classwise F1 Score</td>
+      </tr>
+      <tr class="t2">
+        <td colspan="2"></td>
+        <td><code>OTH</code></td>
+        <td><code>SFI</code></td>
+        <td><code>SFF</code></td>
+        <td><code>SFL</code></td>
+        <td><code>SNI</code></td>
+        <td><code>SNF</code></td>
+        <td><code>SNL</code></td>
+        <td><code>HFL</code></td>
+        <td><code>HFR</code></td>
+        <td><code>HNL</code></td>
+        <td><code>HNR</code></td>
+        <td>AVG</td>
+      </tr>
+      <tr class="t3">
+        <td><b>Framewise CNN</b></td>
+        <td><code>0006</code></td>
+        <td>97.0</td>
+        <td>57.9</td>
+        <td><u>17.7</u></td>
+        <td>13.0</td>
+        <td>62.9</td>
+        <td>21.6</td>
+        <td>0.0</td>
+        <td>74.8</td>
+        <td>76.3</td>
+        <td>77.5</td>
+        <td>78.0</td>
+        <td>52.4</td>
+      </tr>
+      <tr class="t4">
+        <td><b>Two-Stream Nets</b></td>
+        <td><code>0010</code></td>
+        <td>97.2</td>
+        <td><u>67.4</u></td>
+        <td>14.6</td>
+        <td>13.4</td>
+        <td><u>67.0</u></td>
+        <td>19.4</td>
+        <td>0.0</td>
+        <td><u>81.8</u></td>
+        <td><u>83.5</u></td>
+        <td>79.0</td>
+        <td><u>86.2</u></td>
+        <td>55.4</td>
+      </tr>
+      <tr class="t3">
+        <td><b>R(2+1)D</b></td>
+        <td><code>0031</code></td>
+        <td>90.8</td>
+        <td>24.4</td>
+        <td>6.4</td>
+        <td>1.7</td>
+        <td>37.4</td>
+        <td>3.9</td>
+        <td>0.0</td>
+        <td>39.6</td>
+        <td>44.9</td>
+        <td>43.7</td>
+        <td>41.8</td>
+        <td>30.4</td>
+      </tr>
+      <tr class="t4">
+        <td><b>Temporal Pooling</b></td>
+        <td><code>0028</code></td>
+        <td>97.5</td>
+        <td>62.0</td>
+        <td>19.6</td>
+        <td>14.1</td>
+        <td>65.6</td>
+        <td>21.6</td>
+        <td>0.0</td>
+        <td>77.1</td>
+        <td>78.9</td>
+        <td><u>81.0</u></td>
+        <td>80.3</td>
+        <td>54.3</td>
+      </tr>
+      <tr class="t3">
+        <td><b>CNN-RNN</b></td>
+        <td><code>0042</code></td>
+        <td><u>97.6</u></td>
+        <td>65.0</td>
+        <td>13.4</td>
+        <td><u>13.5</u></td>
+        <td>66.2</td>
+        <td><u>27.9</u></td>
+        <td>0.0</td>
+        <td>80.6</td>
+        <td>83.0</td>
+        <td>80.3</td>
+        <td>84.8</td>
+        <td><u>55.7</u></td>
+      </tr>
+    </table>
+    
+    <!-- Captioning -->
+    <h4>Captioning</h4>
+    <p>The captioning model is that from <a href="https://arxiv.org/pdf/1609.08144.pdf" target="_blank" rel="noopener noreferrer">Google</a>.</p>
+
+
+    <table class="hoverTable">
+      <tr class="t1">
+        <td>BLEU@1</td>
+        <td>BLEU@2</td>
+        <td>BLEU@3</td>
+        <td>BLEU@4</td>
+        <td>METEOR</td>
+        <td>ROUGE-L</td>
+        <td>CIDEr</td>
+      </tr>
+      <tr class="t3">
+        <td>46.7</td>
+        <td>307</td>
+        <td>22.1</td>
+        <td>16.4</td>
+        <td>22.6</td>
+        <td>43.9</td>
+        <td>96.4</td>
+      </tr>
+    </table>
+
+    <p>The table below shows some example generated captions on the test split, the underline marks errors.</p>
+
+    <table class="hoverTable">
+      <tr class="t1">
+        <td></td>
+        <td colspan="2" style="text-align: left;">Caption Ground Truths (G) and Predictions (P)</td>
+      </tr>
+      <tr class="t3">
+        <td style="vertical-align: middle;"><code>01</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;high kick serve <u>fp</u> returns a ls return short rally fp cross-court <u>rs</u> lands out-side the court&rdquo;<br>&ldquo;<u>fp</u> serves a good one <u>np</u> delivers a rs return fp sends a <u>ls</u> out of the court&rdquo;</td>
+      </tr>
+      <tr class="t4">
+        <td style="vertical-align: middle;"><code>02</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;good serve aimed at t np only reaches to it hitting the return long&rdquo;<br>&ldquo;fp arrows a good serve at t np is unable to return it&rdquo;</td>
+      </tr>
+      <tr class="t3">
+        <td style="vertical-align: middle;"><code>03</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;good serve in the middle np returns a quick ls return short rally <u>np</u> cross-court fails to <u>clear the net in the middle</u>&ldquo;<br>&ldquo;good serve in the middle np crafts a ls return <u>fp</u> cross-court ls fails to <u>land inside the court</u>&ldquo;</td>
+      </tr>
+      <tr class="t4">
+        <td style="vertical-align: middle;"><code>04</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;fp serves a high kick serve np returns a quick ls return brief rally <u>np</u> rs <u>catches the net</u>&ldquo;<br>&ldquo;fine serve placed out wide np returns a ls return short rally <u>fp</u> strokes a rs cross-court <u>winner</u>&ldquo;</td>
+      </tr>
+      <tr class="t3">
+        <td style="vertical-align: middle;"><code>05</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;quick serve np crafts a rs return <u>fp goes for a ls down the line but catches the net</u>&ldquo;<br>&ldquo;fine serve np shoots a rs <u>return winner</u>&ldquo;</td>
+      </tr>
+      <tr class="t4">
+        <td style="vertical-align: middle;"><code>06</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;double fault&rdquo;<br>&ldquo;double fault&rdquo;</td>
+      </tr>
+      <tr class="t3">
+        <td style="vertical-align: middle;"><code>07</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;good serve np generates a <u>rs</u> return fp then returns one into the net&rdquo;<br>&ldquo;good serve in the middle np returns a <u>ls</u> return fp cross-court rs catches the net&rdquo;</td>
+      </tr>
+      <tr class="t4">
+        <td style="vertical-align: middle;"><code>08</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;fp serves a high kick serve np delivers a <u>high ls</u> return fp <u>produces a ls winner coming to net</u>&ldquo;<br>&ldquo;fp serves a good one np returns a <u>quick rs</u> return fp <u>struggles to keep a cross-court rs in a rally</u>&ldquo;</td>
+      </tr>
+      <tr class="t3">
+        <td style="vertical-align: middle;"><code>09</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;quick serve <u>np returns a quick rs return fp ls is unable to clear the net</u>&ldquo;<br>&ldquo;nice serve by fp <u>np faces difficulty in returning it</u>&ldquo;</td>
+      </tr>
+      <tr class="t4">
+        <td style="vertical-align: middle;"><code>10</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;fp aims a high kick serve np returns a <u>ls</u> return fp hits a rs cross-court <u>winner</u>&ldquo;<br>&ldquo;fp serves a good one np returns a quick <u>rs</u> return fp <u>struggles to keep</u> a cross-court rs <u>in a rally</u>&ldquo;</td>
+      </tr>
+      <tr class="t3">
+        <td style="vertical-align: middle;"><code>11</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;good serve in the middle np crafts a ls return short rally <u>np</u> hits a <u>rs</u> cross-court but it fails to <u>clear the net</u>&ldquo;<br>&ldquo;good serve in the middle np crafts a ls return <u>fp</u> cross-court <u>ls</u> fails to <u>land inside the court</u>&ldquo;</td>
+      </tr>
+      <tr class="t4">
+        <td style="vertical-align: middle;"><code>12</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;fp hits a <u>bodyline</u> serve np has no answer to it&rdquo;<br>&ldquo;fp arrows a good serve <u>at t</u> np is unable to return it&rdquo;</td>
+      </tr>
+      <tr class="t3">
+        <td style="vertical-align: middle;"><code>13</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;<u>double fault</u>&ldquo;<br>&ldquo;<u>good serve aimed at t np only reaches to it</u>&ldquo;</td>
+      </tr>
+      <tr class="t4">
+        <td style="vertical-align: middle;"><code>14</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;double fault&rdquo;<br>&ldquo;double fault&rdquo;</td>
+      </tr>
+      <tr class="t3">
+        <td style="vertical-align: middle;"><code>15</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;fp aims a high kick serve np crafts a ls return good rally fp sends a <u>rs</u> cross-court out of the court&rdquo;<br>&ldquo;good serve in the middle np crafts a ls return fp cross-court <u>ls</u> fails to land inside the court&rdquo;</td>
+      </tr>
+      <tr class="t4">
+        <td style="vertical-align: middle;"><code>16</code></td>
+        <td><b>G</b><br><b>P</b></td>
+        <td style="text-align: left;">&ldquo;fp arrows a <u>bodyline</u> serve np struggles with it&rdquo;<br>&ldquo;fp arrows a good serve <u>at t</u> np is unable to return it&rdquo;</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer"><a href="http://hayden.faulkner.codes/">hayden.faulkner.codes</a></div>
+  <!-- <script type="text/javascript" src="./js/tennis/wordem.js"></script> -->
+  <script type="module" src="./js/tennis/wordem.js"></script>
+
+
 </body>
 </html>

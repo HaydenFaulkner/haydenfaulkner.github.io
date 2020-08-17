@@ -2,5 +2,196 @@
 html, body {
   padding:0;
   margin:0;
-  background:black;
+  background:white;
+  font-family: "Poppins", Sans-serif;
+  color: #404248;
+  text-align: center;
+}
+
+a {
+  color: #0366d6;
+  text-decoration: none !important;
+  transition: all .2s ease-in-out;
+}
+
+a:hover {
+  color: #db0fd1;
+}
+
+hr {
+  color: #404248;
+  line-height: 2px;
+  width: 50%;
+  margin: 20px auto;
+}
+
+h1 {
+  margin-top: 40px;
+}
+
+h2 {
+  margin-top: 50px;
+}
+
+h4 {
+  margin-top: 50px;
+}
+
+pre {
+  font-family: monospace;
+  text-align: left;
+  line-height: 1.5em;
+  display: block;
+  padding: 20px;
+  background: #fbfbfb;
+  border-radius: 5px;
+  border: 1px solid #f0f0f0;
+  margin: 20px 0;
+  white-space: pre-wrap;
+  font-size: 1em;
+}
+
+code {
+  font-family: monospace;
+  text-align: left;
+  padding: 3px;
+  /* line-height: 1.5em; */
+  /* display: block; */
+  /* padding: 20px; */
+  background: #fbfbfb;
+  border-radius: 5px;
+  border: 1px solid #f0f0f0;
+  /* margin: 20px 0; */
+  white-space: pre-wrap;
+  font-size: 1em;
+  color:#404248;
+}
+
+ul {
+  text-align: left;
+}
+
+li {
+  margin: 20px 0px;
+}
+
+.center-wrapper {
+  margin: 0px auto;
+  width: 1000px;
+}
+
+.buttons-wrapper {
+  width: 790px;
+  margin: 0px auto;
+  display: flex;
+}
+
+.buttons-wrapper > div {
+  flex: 1; /*grow*/
+}
+
+.button {
+  color: white;
+  width: 200px;
+  background:#0366d6;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px;
+  transition: all .2s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: #db0fd1;
+}
+
+.hoverTable {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  font-family: "Poppins", sans-serif;
+}
+
+.hoverTable .t1 {
+  text-align: center;
+  font-weight: bold;
+  background: rgba(16, 110, 234, 1);
+  color: white;
+}
+
+.hoverTable .t2 {
+  text-align: center;
+  background: rgba(16, 110, 234, 0.3);
+}
+
+.hoverTable .t3 {
+  text-align: center;
+  transition: 0.6s;
+  background: rgba(255, 255, 255, 1);
+}
+
+.hoverTable .t4 {
+  text-align: center;
+  transition: 0.6s;
+  background: #f0f0f0;
+}
+
+.hoverTable td{
+  cursor: default;
+  border-bottom: 0px;
+  text-align: center;
+  padding: 6px;
+}
+
+.hoverTable tr{
+  border-bottom: 0px;
+  text-align: center;
+  background: rgba(255, 255, 255, 1);
+}
+
+.hoverTable .t3:hover {
+  text-align: center;
+  background: rgba(219, 15, 209, 0.5);
+  transition: 0.6s;
+}
+
+.hoverTable .t4:hover {
+  text-align: center;
+  background: rgba(219, 15, 209, 0.5);
+  transition: 0.6s;
+}
+
+.svg-train rect {
+  transition: 0.4s;
+}
+
+.svg-val rect {
+  transition: 0.4s;
+}
+
+.svg-test rect {
+  transition: 0.4s;
+}
+
+.svg-hover rect {
+  transition: 0.4s;
+  fill: rgb(219, 15, 209);
+}
+
+.split-vis{
+  display: block;
+  margin: auto;
+}
+
+.footer {
+  background: #f0f0f0;
+  color: white;
+  margin-top: 100px;
+  padding: 40px;
+}
+
+#c { 
+  width: 100%;
+  height: 500px; 
+  display: block;
 }

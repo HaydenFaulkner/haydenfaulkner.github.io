@@ -1,2 +1,2 @@
-./img/
-!./img/profile_new.jpg
+/img/*
+!/img/profile_new.jpg

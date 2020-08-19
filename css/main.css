@@ -556,6 +556,7 @@ i:hover {
 
 .timeline-b-block-right {
   float: right;
+  direction: ltr;
 }
 
 .timeline-b-block-left {

@@ -152,7 +152,7 @@ var pJS = function(tag_id, params){
   /* edit to handle mobile screens */
   if (isMobile){
     console.log('hi')
-    pJS.particles.number.value = 100
+    pJS.particles.number.value = 80
   }
   
   pJS.tmp.obj = {

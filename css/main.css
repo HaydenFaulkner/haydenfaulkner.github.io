@@ -108,7 +108,12 @@ img {
   letter-spacing: 0px;
   text-shadow: 0px 0px 22px -8px rgba(0,0,0,1);
   pointer-events: none;
-  max-width: 1200px;
+}
+
+@media screen and (max-width: 768px) {
+  .overlay {
+    font-size: 40px;
+  }
 }
 
 /* top menu social icons */

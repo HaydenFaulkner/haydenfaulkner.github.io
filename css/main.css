@@ -111,7 +111,7 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .overlay {
+  #overlay {
     font-size: 40px;
   }
 }

@@ -89,12 +89,6 @@ img {
   pointer-events: all; /* or auto, unset, etc */
 }
 
-/* @media screen and (max-width: 600px) {
-  #particles-js {
-    scale: 5;
-  }
-} */
-
 /* Header Overlay (typewriter) */
 #overlay {
   position: absolute;
@@ -147,11 +141,11 @@ i:hover {
   margin-top:700px;
   position:absolute;
   height:100%;
-  width:100%;
+  /* width:100%; */
 }
 
 .panel {
-  position:relative;
+  /* position:relative; */
   width:100%;
   display: inline-block;
   background:rgba(0,0,0,0.4);
@@ -165,7 +159,7 @@ i:hover {
 
 .mid {
   margin: 0 auto;
-  width: 1200px;
+  max-width: 1200px;
 }
 
 .spacer-t {

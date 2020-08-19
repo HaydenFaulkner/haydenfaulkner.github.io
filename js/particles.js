@@ -152,7 +152,7 @@ var pJS = function(tag_id, params){
   /* edit to handle mobile screens */
   if (isMobile){
     console.log('hi')
-    pJS.particles.number.value = 500
+    pJS.particles.number.value = 100
   }
   
   pJS.tmp.obj = {
@@ -166,7 +166,7 @@ var pJS = function(tag_id, params){
     mode_bubble_size: pJS.interactivity.modes.bubble.size,
     mode_repulse_distance: pJS.interactivity.modes.repulse.distance
   };
-  
+
 
   pJS.fn.retinaInit = function(){
 

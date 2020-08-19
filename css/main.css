@@ -110,7 +110,7 @@ img {
   pointer-events: none;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   #overlay {
     font-size: 40px;
   }

@@ -668,6 +668,7 @@ i:hover {
   }
   .timeline-b-block-right {
      float: none;
+     direction: rtl;
   }
 
   .timeline-b-block-left {

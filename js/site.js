@@ -9,19 +9,20 @@
   var toggle = document.getElementById('theme-toggle');
   var themeMeta = document.querySelector('meta[name="theme-color"]');
 
-  function applyTheme(theme, persist) {
+  // Always starts dark: the toggle only lasts for the current visit.
+  function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
     toggle.setAttribute('aria-pressed', String(theme === 'dark'));
     if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#262626' : '#cdf0a8');
-    if (persist) {
-      try { localStorage.setItem('theme', theme); } catch (e) { /* private mode */ }
-    }
     window.dispatchEvent(new Event('themechange'));
   }
 
-  applyTheme(root.getAttribute('data-theme') || 'dark', false);
+  // Clear any choice saved by the earlier version of this site
+  try { localStorage.removeItem('theme'); } catch (e) { /* private mode */ }
+
+  applyTheme('dark');
   toggle.addEventListener('click', function () {
-    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true);
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
 
   /* ---------- Nav: scrolled state + mobile menu ---------- */

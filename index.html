@@ -23,17 +23,8 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/site.css">
 
-  <!-- Set the theme before first paint so there is no flash -->
-  <script>
-    (function () {
-      var d = document.documentElement;
-      d.classList.add('js');
-      var saved = null;
-      try { saved = localStorage.getItem('theme'); } catch (e) {}
-      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-      d.setAttribute('data-theme', saved || (prefersLight ? 'light' : 'dark'));
-    })();
-  </script>
+  <!-- Every visit starts in dark mode (set on <html>); this only flags that JS is running -->
+  <script>document.documentElement.classList.add('js');</script>
 
   <script type="application/ld+json">
   {

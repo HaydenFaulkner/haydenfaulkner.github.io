@@ -1,13 +1,637 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <title>Hayden Faulkner</title>
-  <meta http-equiv="refresh" content="0; url=https://github.com/HaydenFaulkner">
-  <script>window.location.replace("https://github.com/HaydenFaulkner");</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hayden Faulkner × Machine Learning Engineer & Full-Stack Developer</title>
+  <meta name="description" content="Hayden Faulkner is an Adelaide-based machine learning engineer and full-stack developer with 15+ years of software experience and a PhD in computer vision. He builds products end to end, from UI and data design to cloud infrastructure and edge devices, and works with AI both in the product and in his own workflow.">
+  <meta name="author" content="Hayden Faulkner">
+  <link rel="canonical" href="https://hayden.faulkner.codes/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hayden.faulkner.codes/">
+  <meta property="og:title" content="Hayden Faulkner × Machine Learning Engineer & Full-Stack Developer">
+  <meta property="og:description" content="15+ years building software across web, cloud and embedded systems. PhD in machine learning and computer vision. AI in the product and in the workflow. Based in Adelaide, Australia.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/8445384?v=4">
+  <meta name="twitter:card" content="summary">
+
+  <meta name="theme-color" content="#262626">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/site.css">
+
+  <!-- Set the theme before first paint so there is no flash -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      d.setAttribute('data-theme', saved || (prefersLight ? 'light' : 'dark'));
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hayden Faulkner",
+    "honorificPrefix": "Dr",
+    "url": "https://hayden.faulkner.codes/",
+    "image": "https://avatars.githubusercontent.com/u/8445384?v=4",
+    "jobTitle": "Machine Learning Engineer & Full-Stack Developer",
+    "address": { "@type": "PostalAddress", "addressLocality": "Adelaide", "addressCountry": "AU" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "The University of Adelaide" },
+    "knowsAbout": ["Artificial Intelligence", "AI-Assisted Software Development", "Machine Learning", "Computer Vision", "Data Science", "Full-Stack Development", "Cloud Infrastructure", "Embedded Systems"],
+    "sameAs": [
+      "https://github.com/HaydenFaulkner",
+      "https://www.linkedin.com/in/hayden-faulkner-a6a425147/"
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <p>Redirecting to <a href="https://github.com/HaydenFaulkner">https://github.com/HaydenFaulkner</a>...</p>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner wrap">
+      <a class="logo" href="#top" aria-label="Hayden Faulkner, back to top">HF<span class="x">×</span></a>
+
+      <nav class="nav__links" id="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">What I do</a>
+        <a href="#products">Products</a>
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav__tools">
+        <button class="toggle" id="theme-toggle" type="button" aria-pressed="true" aria-label="Toggle dark mode">
+          <span class="toggle__label">Dark Mode</span>
+          <span class="toggle__track"><span class="toggle__knob"></span></span>
+        </button>
+        <button class="menu" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <canvas class="hero__field" id="field" aria-hidden="true"></canvas>
+
+      <div class="wrap hero__grid">
+        <div class="hero__main">
+          <p class="eyebrow reveal">Adelaide, Australia <span class="x">×</span> PhD, Computer Science</p>
+          <h1 class="name reveal" aria-label="Hayden Faulkner">
+            <span>HAYDEN</span>
+            <span>FAULKNER</span>
+          </h1>
+        </div>
+
+        <ul class="roles reveal" aria-label="Roles">
+          <li>Machine Learning Engineer <span class="x">×</span></li>
+          <li>Full-Stack Developer <span class="x">×</span></li>
+          <li>Data Scientist <span class="x">×</span></li>
+          <li>Application Designer <span class="x">×</span></li>
+          <li>Team Leader <span class="x">×</span></li>
+        </ul>
+
+        <div class="hero__foot">
+          <p class="lead reveal">
+            I build software end to end, from the interface and data model through to the cloud
+            and the devices at the edge. I've worked in machine learning for over a decade, and AI is now
+            both what I put into products and how I build them.
+          </p>
+
+          <div class="cta reveal">
+            <a class="btn btn--solid" href="#contact">Get in touch <span aria-hidden="true">→</span></a>
+            <a class="btn" href="https://github.com/HaydenFaulkner" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about">
+        <span>scroll</span>
+        <span class="scroll-cue__line"></span>
+      </a>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats" aria-label="At a glance">
+      <div class="wrap stats__grid">
+        <div class="stat reveal">
+          <span class="stat__num" data-count="15" data-suffix="+">15+</span>
+          <span class="stat__label">years writing software</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num" data-count="10" data-suffix="+">10+</span>
+          <span class="stat__label">years in machine learning &amp; AI</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num">PhD</span>
+          <span class="stat__label">computer vision &amp; video understanding</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num" data-count="5" data-suffix="+">5+</span>
+          <span class="stat__label">products owned from concept to production</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2 class="section__title reveal"><span class="idx">01</span> About</h2>
+
+        <div class="about">
+          <figure class="about__photo reveal">
+            <div class="about__frame">
+              <img src="https://avatars.githubusercontent.com/u/8445384?v=4" alt="Portrait of Hayden Faulkner" width="389" height="389" loading="lazy">
+            </div>
+            <figcaption><span class="x">×</span> Dr Hayden Faulkner</figcaption>
+          </figure>
+
+          <div class="about__text">
+            <p class="reveal">
+              I'm a software engineer and machine learning specialist based in Adelaide. For the last several years
+              I've worked inside startups, mainly <span class="hl">Insight Via Artificial Intelligence</span> and
+              <span class="hl">Woven Optics</span>, as the person who takes a product from an idea to something running in
+              production: the UI, the data design, the backend, the cloud, and the hardware at the edge.
+            </p>
+            <p class="reveal">
+              Before that I completed a PhD at The University of Adelaide and the Australian Institute for Machine Learning,
+              researching general and fine-grained video understanding. That's where the computer vision and data science
+              comes from, along with a habit of looking for the answer hidden in the data.
+            </p>
+            <p class="reveal">
+              AI is also how I work, not only what I build. I use coding assistants such as Copilot and Claude Code
+              throughout development, and because I've trained and evaluated models myself, I know where they speed
+              things up and where their output needs checking.
+            </p>
+            <p class="reveal">
+              I work directly with founders, stakeholders and customers, and I like mentoring small teams while staying
+              hands-on with the product.
+            </p>
+
+            <div class="tldr reveal" role="group" aria-label="TLDR">
+              <div class="tldr__bar"><span></span><span></span><span></span><em>tldr.txt</em></div>
+              <ul>
+                <li>15+ years of software development experience</li>
+                <li>Built and owned applications across web, desktop, cloud and embedded systems</li>
+                <li>Worked in startups alongside founders, stakeholders and customers</li>
+                <li>Led and mentored small engineering teams, guiding process and principles</li>
+                <li>PhD in Machine Learning &amp; Computer Vision, developing and integrating AI</li>
+                <li>AI-literate: builds with AI tools daily and knows how the models work underneath</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT I DO ============ -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <h2 class="section__title reveal"><span class="idx">02</span> What I do</h2>
+        <p class="section__intro reveal">Six things I'm regularly trusted with, often all on the same project.</p>
+
+        <div class="cards">
+          <article class="card reveal">
+            <span class="card__num">01</span>
+            <h3>Software <span class="x">×</span> Product</h3>
+            <ul>
+              <li>Full-stack applications built from the ground up, including UI/UX, data design, frontend, backend and cloud infrastructure.</li>
+              <li>Systems and APIs connecting web apps, third-party APIs, cloud services and physical devices.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">02</span>
+            <h3>Machine Learning <span class="x">×</span> Computer Vision <span class="x">×</span> Data Science</h3>
+            <ul>
+              <li>Gathering, cleaning and analysing data to answer practical questions.</li>
+              <li>Training, evaluating and refining models for real-world problems, then integrating them into production.</li>
+              <li>Visualisations, reports and data storytelling that make complex results clear.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">03</span>
+            <h3>AI Tools <span class="x">×</span> AI Literacy</h3>
+            <ul>
+              <li>AI coding assistants used throughout development to prototype, build, review and document faster.</li>
+              <li>A research background in how these models work, so I know their limits and verify what they produce.</li>
+              <li>Practical judgement on where AI belongs in a product and where it doesn't.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">04</span>
+            <h3>Cloud <span class="x">×</span> Infrastructure</h3>
+            <ul>
+              <li>Cloud systems designed and implemented on AWS and Firebase/GCP.</li>
+              <li>Data pipelines and infrastructure supporting distributed devices and applications.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">05</span>
+            <h3>Embedded Systems</h3>
+            <ul>
+              <li>Software for Raspberry Pi, NVIDIA Jetson and Linux-based systems.</li>
+              <li>Communication, sync and data-processing pipelines linking edge devices to the cloud.</li>
+              <li>Remote management, file transfer and over-the-air software updates.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">06</span>
+            <h3>Leadership <span class="x">×</span> Ownership</h3>
+            <ul>
+              <li>Sole owner or technical lead on multiple products, from concept through to production.</li>
+              <li>Mentoring small engineering teams while staying hands-on and leading by example.</li>
+              <li>Working with founders and customers to shape requirements and technical direction.</li>
+            </ul>
+          </article>
+
+          <a class="card card--cta reveal" href="#contact">
+            <h3>Your project?</h3>
+            <p>If it involves data, devices or a product that needs building properly, let's talk.</p>
+            <span class="card__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section class="section" id="products">
+      <div class="wrap">
+        <h2 class="section__title reveal"><span class="idx">03</span> Selected work</h2>
+        <p class="section__intro reveal">Three products I've built or led, all live today.</p>
+
+        <div class="projects">
+          <article class="proj reveal">
+            <div class="proj__top">
+              <span class="proj__role">Sole developer</span>
+              <span class="proj__org">Woven Optics</span>
+            </div>
+            <h3><span class="hl">Wool Scanner</span></h3>
+            <p class="proj__what">
+              A handheld instrument that predicts the micron of an individual fleece in real time, paired with a
+              web dashboard that turns each session into decisions for growers and buyers.
+            </p>
+            <ul class="proj__did">
+              <li>Built the full stack as sole developer: frontend, backend and cloud.</li>
+              <li>Dashboard for session statistics, histograms, animal rankings and one-click export.</li>
+            </ul>
+            <dl class="proj__facts">
+              <div><dt>0.9961</dt><dd>R² correlation in published performance testing</dd></div>
+              <div><dt>30 s</dt><dd>to 2 minutes per result, on the farm</dd></div>
+            </dl>
+            <ul class="proj__tags" aria-label="Technologies"><li>React</li><li>Firebase</li><li>GCP</li></ul>
+            <a class="proj__link" href="https://scanner.wovenoptics.com/" target="_blank" rel="noopener">scanner.wovenoptics.com ↗</a>
+          </article>
+
+          <article class="proj reveal">
+            <div class="proj__top">
+              <span class="proj__role">Tech lead</span>
+              <span class="proj__org">Insight Via Artificial Intelligence</span>
+            </div>
+            <h3><span class="hl">Clear Call</span></h3>
+            <p class="proj__what">
+              A telehealth platform that gives specialists the audio, visual and clinical detail they need to
+              assess risk and decide on escalation remotely.
+            </p>
+            <ul class="proj__did">
+              <li>Led the technical direction of the product.</li>
+              <li>Designed the application and built the frontend.</li>
+            </ul>
+            <dl class="proj__facts">
+              <div><dt>In trial</dt><dd>at the Royal Adelaide Hospital multidisciplinary foot clinic</dd></div>
+              <div><dt>3D</dt><dd>wound surface modelling for remote measurement</dd></div>
+            </dl>
+            <ul class="proj__tags" aria-label="Technologies"><li>React</li><li>AWS</li></ul>
+            <a class="proj__link" href="https://clearcall.au/about" target="_blank" rel="noopener">clearcall.au ↗</a>
+          </article>
+
+          <article class="proj reveal">
+            <div class="proj__top">
+              <span class="proj__role">Sole developer</span>
+              <span class="proj__org">Centre for Automotive Safety Research × IVAI</span>
+            </div>
+            <h3><span class="hl">Project Velograph</span></h3>
+            <p class="proj__what">
+              An open research project measuring how closely vehicles pass cyclists, using devices mounted on
+              participants' own bikes and a public map of the results.
+            </p>
+            <ul class="proj__did">
+              <li>Built the full stack as sole developer: frontend, backend and cloud.</li>
+              <li>Participant portal for uploading rides, plus the interactive public data map.</li>
+            </ul>
+            <dl class="proj__facts">
+              <div><dt>100k+</dt><dd>vehicle passes recorded</dd></div>
+              <div><dt>55k+</dt><dd>kilometres ridden by 180+ participants</dd></div>
+            </dl>
+            <ul class="proj__tags" aria-label="Technologies"><li>React</li><li>Firebase</li><li>GCP</li></ul>
+            <a class="proj__link" href="https://project.velograph.app/" target="_blank" rel="noopener">project.velograph.app ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="wrap">
+        <h2 class="section__title reveal"><span class="idx">04</span> Experience</h2>
+
+        <ol class="timeline">
+          <li class="job reveal">
+            <div class="job__when">2021 <span>–</span> Present</div>
+            <div class="job__body">
+              <div class="job__orgs">
+                <a class="hl" href="https://www.ivai.com.au/" target="_blank" rel="noopener">Insight Via Artificial Intelligence</a>
+                <span class="x">×</span>
+                <a class="hl" href="https://wovenoptics.com/" target="_blank" rel="noopener">Woven Optics</a>
+              </div>
+              <p class="job__focus">Software × Product × ML × Cloud × Embedded × Leadership</p>
+              <ul>
+                <li>Designed and built full-stack applications from the ground up: UI/UX, data design, frontend, backend and cloud.</li>
+                <li>Solely owned or led the technical development of multiple products from concept through to production.</li>
+                <li>Built systems linking web apps, cloud services and edge devices (Raspberry Pi, NVIDIA Jetson), including sync pipelines, file transfer and remote software updates.</li>
+                <li>Designed and implemented cloud systems on AWS and Firebase/GCP.</li>
+                <li>Developed and integrated machine learning and computer vision into production applications.</li>
+                <li>Mentored small engineering teams and worked directly with founders and customers to shape product direction.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job reveal">
+            <div class="job__when">2019 <span>–</span> 2021</div>
+            <div class="job__body">
+              <div class="job__orgs">
+                <a class="hl" href="https://www.athletesai.com/" target="_blank" rel="noopener">Athletes AI</a>
+                <span class="x">×</span>
+                <a class="hl" href="https://ecms.adelaide.edu.au/centre-for-automotive-safety-research/" target="_blank" rel="noopener">Centre for Automotive Safety Research</a>
+                <span class="x">×</span>
+                <a class="hl" href="https://www.agtbreeding.com.au/" target="_blank" rel="noopener">Australian Grain Technologies</a>
+              </div>
+              <p class="job__focus">Machine Learning × Computer Vision × Data Science</p>
+              <ul>
+                <li>Gathered, filtered, cleaned and analysed data, interpreting results to find meaningful insights and answer practical questions.</li>
+                <li>Experimented with, trained and evaluated machine learning algorithms, refining approaches for real-world problems.</li>
+                <li>Developed and integrated ML and computer vision algorithms into production applications.</li>
+                <li>Presented findings through visualisations, reports and data storytelling for customers and stakeholders.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job reveal">
+            <div class="job__when">2015 <span>–</span> 2021</div>
+            <div class="job__body">
+              <div class="job__orgs">
+                <a class="hl" href="https://www.adelaide.edu.au/aiml/" target="_blank" rel="noopener">Australian Institute for Machine Learning</a>
+                <span class="x">×</span>
+                <a class="hl" href="https://www.d2dcrc.com.au/" target="_blank" rel="noopener">Data to Decisions CRC</a>
+              </div>
+              <p class="job__focus">PhD research × Video understanding</p>
+              <ul>
+                <li>Researched image and video classification, detection, captioning and tracking with deep neural networks.</li>
+                <li>Published at DICTA and released the TenniSet dataset and models.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH ============ -->
+    <section class="section" id="research">
+      <div class="wrap">
+        <h2 class="section__title reveal"><span class="idx">05</span> Research &amp; talks</h2>
+        <p class="section__intro reveal">Papers, theses and talks from my years in computer vision research.</p>
+
+        <ul class="pubs">
+          <li class="pub reveal">
+            <span class="pub__tag">Thesis</span>
+            <div>
+              <h3>General and Fine-Grained Video Understanding</h3>
+              <p class="pub__venue">PhD thesis × The University of Adelaide × 2021</p>
+              <p class="pub__links"><a href="./pdfs/Thesis.pdf" target="_blank" rel="noopener">Thesis</a></p>
+            </div>
+          </li>
+
+          <li class="pub reveal">
+            <span class="pub__tag">Paper</span>
+            <div>
+              <h3>TenniSet: A Dataset for Dense Fine-Grained Event Recognition, Localisation and Description</h3>
+              <p class="pub__venue">DICTA 2017 × Digital Image Computing: Techniques and Applications</p>
+              <p class="pub__links">
+                <a href="./tennis.html">Project</a>
+                <a href="./pdfs/DICTA17_Tennis.pdf" target="_blank" rel="noopener">Paper</a>
+                <a href="./pdfs/dicta17_poster.pdf" target="_blank" rel="noopener">Poster</a>
+                <a href="https://github.com/HaydenFaulkner/Tennis" target="_blank" rel="noopener">Code</a>
+              </p>
+            </div>
+          </li>
+
+          <li class="pub reveal">
+            <span class="pub__tag">Paper</span>
+            <div>
+              <h3>AFL Player Detection and Tracking</h3>
+              <p class="pub__venue">DICTA 2015 × Digital Image Computing: Techniques and Applications</p>
+              <p class="pub__links">
+                <a href="./pdfs/AFL_det_trk.pdf" target="_blank" rel="noopener">Paper</a>
+                <a href="./pdfs/dicta_afl_pres.pdf" target="_blank" rel="noopener">Slides</a>
+              </p>
+            </div>
+          </li>
+
+          <li class="pub reveal">
+            <span class="pub__tag">Paper</span>
+            <div>
+              <h3>A Study of the Region Covariance Descriptor: Impact of Feature Selection and Image Transformations</h3>
+              <p class="pub__venue">DICTA 2015 × Digital Image Computing: Techniques and Applications</p>
+              <p class="pub__links">
+                <a href="./pdfs/regionCovarianceEvaluation.pdf" target="_blank" rel="noopener">Paper</a>
+                <a href="./pdfs/dicta_rcd_poster.pdf" target="_blank" rel="noopener">Poster</a>
+                <a href="./pdfs/dicta_rcd_pres.pdf" target="_blank" rel="noopener">Slides</a>
+              </p>
+            </div>
+          </li>
+
+          <li class="pub reveal">
+            <span class="pub__tag">Paper</span>
+            <div>
+              <h3>Approximate Approaches to the Traveling Thief Problem</h3>
+              <p class="pub__venue">GECCO 2015 × Genetic and Evolutionary Computation Conference</p>
+              <p class="pub__links">
+                <a href="./pdfs/2015gecco-ttp.pdf" target="_blank" rel="noopener">Paper</a>
+                <a href="./pdfs/AAttTTP_presentation.pdf" target="_blank" rel="noopener">Slides</a>
+                <a href="https://cs.adelaide.edu.au/~optlog/research/ttp/2015gecco-codeForDistribution.zip" target="_blank" rel="noopener">Code</a>
+              </p>
+            </div>
+          </li>
+
+          <li class="pub reveal">
+            <span class="pub__tag">Thesis</span>
+            <div>
+              <h3>Visual Tracking for Application to AFL Football</h3>
+              <p class="pub__venue">Honours thesis × The University of Adelaide × 2014</p>
+              <p class="pub__links">
+                <a href="./pdfs/HonoursThesis.pdf" target="_blank" rel="noopener">Thesis</a>
+                <a href="./pdfs/honours_poster.pdf" target="_blank" rel="noopener">Poster</a>
+              </p>
+            </div>
+          </li>
+
+          <li class="pub reveal">
+            <span class="pub__tag">Talk</span>
+            <div>
+              <h3>Panel on AI and Machine Learning</h3>
+              <p class="pub__venue">The University of Adelaide</p>
+              <p class="pub__links"><a href="https://www.youtube.com/watch?v=oMN95S7B_Z8" target="_blank" rel="noopener">Watch</a></p>
+            </div>
+          </li>
+
+          <li class="pub reveal">
+            <span class="pub__tag">Talk</span>
+            <div>
+              <h3>Deep Learning for Computer Vision</h3>
+              <p class="pub__venue">Data to Decisions CRC</p>
+              <p class="pub__links"><a href="./pdfs/Deep_Learning_D2D_CRC_Pres.pdf" target="_blank" rel="noopener">Slides</a></p>
+            </div>
+          </li>
+
+          <li class="pub reveal">
+            <span class="pub__tag">Award</span>
+            <div>
+              <h3>Three Minute Thesis Winner</h3>
+              <p class="pub__venue">Data to Decisions CRC × national student cohort × Canberra</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION + SKILLS ============ -->
+    <section class="section" id="education">
+      <div class="wrap split">
+        <div>
+          <h2 class="section__title reveal"><span class="idx">06</span> Education</h2>
+          <ul class="edu">
+            <li class="reveal">
+              <div class="edu__head"><span class="hl">PhD in Computer Science</span> <strong>General &amp; Fine-Grained Video Understanding</strong></div>
+              <p>2021 × The University of Adelaide × The Australian Institute for Machine Learning × The Data to Decisions CRC</p>
+            </li>
+            <li class="reveal">
+              <div class="edu__head"><span class="hl">Honours in Computer Science</span> <strong>Top of Class</strong></div>
+              <p>2014 × The University of Adelaide</p>
+            </li>
+            <li class="reveal">
+              <div class="edu__head"><span class="hl">Bachelor of Computer Graphics</span> <strong>GPA 5.63</strong></div>
+              <p>2012 × The University of Adelaide</p>
+            </li>
+          </ul>
+        </div>
+
+        <div id="skills">
+          <h2 class="section__title reveal"><span class="idx">07</span> Skills</h2>
+          <dl class="skills">
+            <div class="reveal">
+              <dt>Languages</dt>
+              <dd><span>TypeScript</span><span>JavaScript</span><span>Python</span><span>HTML</span><span>CSS</span><span>C</span><span>C++</span><span>SQL</span></dd>
+            </div>
+            <div class="reveal">
+              <dt>Dev</dt>
+              <dd><span>React</span><span>React Native</span><span>Node.js</span><span>AWS</span><span>Firebase</span><span>GCP</span><span>PyTorch</span><span>Linux</span></dd>
+            </div>
+            <div class="reveal">
+              <dt>Specialist</dt>
+              <dd><span>Machine Learning</span><span>Data Science</span><span>Computer Vision</span><span>Image Processing</span></dd>
+            </div>
+            <div class="reveal">
+              <dt>AI Tools</dt>
+              <dd><span>GitHub Copilot</span><span>Claude Code</span></dd>
+            </div>
+            <div class="reveal">
+              <dt>Design</dt>
+              <dd><span>UI/UX</span><span>Graphic Design</span><span>Adobe Suite</span></dd>
+            </div>
+            <div class="reveal">
+              <dt>Tools</dt>
+              <dd><span>Git</span><span>VS Code</span></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <svg class="big-x" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <polygon points="0,14 14,0 50,36 86,0 100,14 64,50 100,86 86,100 50,64 14,100 0,86 36,50"/>
+      </svg>
+
+      <div class="wrap contact__inner">
+        <h2 class="section__title reveal"><span class="idx">08</span> Contact</h2>
+        <p class="contact__big reveal">Got something<br>worth building?</p>
+        <p class="contact__sub reveal">Whether it's a product, a data problem or a fleet of devices, I'd like to hear about it.</p>
+
+        <form class="form reveal" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms access key: public by design, it does not reveal the destination address -->
+          <input type="hidden" name="access_key" value="2195cbf3-bdde-468a-a2f5-9955f9d17100">
+          <input type="hidden" name="subject" value="New message from hayden.faulkner.codes">
+          <input type="hidden" name="from_name" value="hayden.faulkner.codes">
+          <input class="form__trap" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form__row">
+            <label class="field">
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" maxlength="100" required>
+            </label>
+            <label class="field">
+              <span>Email <em>so I can reply</em></span>
+              <input type="email" name="email" autocomplete="email" maxlength="200" required>
+            </label>
+          </div>
+          <label class="field">
+            <span>Message</span>
+            <textarea name="message" rows="6" maxlength="5000" required></textarea>
+          </label>
+
+          <div class="form__foot">
+            <button class="btn btn--solid" type="submit">Send message <span aria-hidden="true">→</span></button>
+            <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <ul class="contact__links reveal">
+          <li><a href="https://github.com/HaydenFaulkner" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/hayden-faulkner-a6a425147/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span id="year">2026</span> Hayden Faulkner</span>
+      <span class="footer__mid">Built by Hayden <span class="x">×</span> Claude in 58 minutes.</span>
+      <span>Adelaide, Australia</span>
+    </div>
+  </footer>
+
+  <script src="./js/site.js" defer></script>
 </body>
 </html>
